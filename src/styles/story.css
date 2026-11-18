@@ -1,0 +1,664 @@
+/* ───────────── Story chapters (overlay on the fixed 3D stage) ───────────── */
+.story {
+  position: relative;
+  z-index: 2;
+}
+.chapter {
+  position: relative;
+  min-height: 100svh;
+  padding: calc(var(--frame) + var(--head) + 28px) calc(var(--frame) + var(--gutter) + 26px) 0;
+}
+.chapter--velocity { min-height: 200svh; }
+.chapter--transit { min-height: 240svh; }
+.chapter--scale { min-height: 200svh; }
+.chapter--boarding { min-height: 170svh; }
+
+/* ───────────── Hero ───────────── */
+.chapter--hero {
+  min-height: 112svh;
+  padding: 0;
+}
+.hero {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  min-height: 100svh;
+  padding: calc(var(--frame) + var(--head) + 34px) calc(var(--frame) + var(--gutter) + 26px) calc(var(--frame) + 96px);
+}
+.hero__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.hero__kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.hero__kicker .tag {
+  color: var(--bone);
+}
+.hero__title {
+  grid-row: 3;
+  margin: 0 0 0 -0.05em;
+  font-weight: 800;
+  font-size: clamp(76px, 19vw, 360px);
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: var(--bone);
+  white-space: nowrap;
+}
+.hero__title .ch {
+  display: inline-block;
+  will-change: transform;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 45% 0 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgb(14 14 14 / 0), rgb(14 14 14 / 0.72) 70%);
+  pointer-events: none;
+}
+.hero__row {
+  grid-row: 4;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) auto minmax(0, 0.8fr);
+  align-items: end;
+  gap: 32px;
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-strong);
+}
+.hero__lede {
+  max-width: 38ch;
+  font-size: clamp(15px, 1.25vw, 19px);
+  line-height: 1.4;
+}
+.hero__tape {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.vhs {
+  padding: 2px 8px;
+  border: 2px solid var(--bone);
+  font-weight: 900;
+  font-size: 15px;
+  font-style: italic;
+  letter-spacing: -0.02em;
+}
+.hero__code {
+  white-space: nowrap;
+  font-weight: 800;
+  font-size: clamp(36px, 4.4vw, 76px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--orange);
+}
+.hero__by {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.hero__by b {
+  margin-left: 6px;
+  font-weight: 500;
+  color: var(--bone);
+}
+.hero__cue {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.hero__cue i {
+  position: relative;
+  width: 1px;
+  height: 44px;
+  background: var(--line-strong);
+  overflow: hidden;
+}
+.hero__cue i::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -40%;
+  width: 1px;
+  height: 40%;
+  background: var(--orange);
+  animation: cue 1.8s var(--ease-io) infinite;
+}
+.hero__cue:hover {
+  color: var(--orange);
+}
+@keyframes cue {
+  to { top: 100%; }
+}
+
+/* ───────────── Sticker-strip cards ───────────── */
+.card {
+  position: sticky;
+  top: calc(var(--frame) + var(--head) + 26px);
+  display: flex;
+  flex-direction: column;
+  width: min(330px, calc(100vw - 2 * var(--gutter) - 2 * var(--frame)));
+  max-height: calc(100svh - var(--head) - 150px);
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 30px 80px -30px rgb(0 0 0 / 0.7), 0 2px 0 rgb(255 255 255 / 0.04) inset;
+  font-size: 13px;
+}
+.chapter--right .card {
+  margin-left: auto;
+}
+.card > * {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.card__cells {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 !important;
+  border-bottom: 1.5px solid currentColor;
+}
+.card__cells > div {
+  display: grid;
+  gap: 2px;
+  padding: 10px 14px;
+}
+.card__cells > div + div {
+  border-left: 1.5px solid currentColor;
+}
+.card__cells small {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.75;
+}
+.card__cells b {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 17px;
+}
+.card__label {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.8;
+}
+.card__title {
+  margin-top: 6px;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+.card__big {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+  font-weight: 800;
+  font-stretch: 62%;
+  font-size: 108px;
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.card__big small {
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-stretch: 100%;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.card__rows {
+  margin-top: 14px;
+}
+.card__rows > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 30px;
+  border-top: 1.5px solid currentColor;
+}
+.card__rows dt {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.card__rows dd {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.sq {
+  width: 9px;
+  height: 9px;
+  background: currentColor;
+}
+.meter {
+  display: inline-block;
+  width: 78px;
+  height: 7px;
+  border: 1.5px solid currentColor;
+  overflow: hidden;
+}
+.meter i {
+  display: block;
+  height: 100%;
+  background: currentColor;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.card__text {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1.5px solid currentColor;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.card__hazard {
+  height: 22px;
+  margin: 16px 16px 0;
+  padding: 0 !important;
+  background: repeating-linear-gradient(-45deg, currentColor 0 7px, transparent 7px 14px);
+}
+.card__foot {
+  padding-top: 10px;
+  padding-bottom: 14px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Orange — "system label" strip */
+.card--orange {
+  background: var(--orange);
+  color: var(--ink);
+}
+
+/* Ink — technical manual strip */
+.card--ink {
+  background: #101010;
+  color: var(--bone);
+  border: 1px solid rgb(255 90 31 / 0.55);
+}
+.card--ink .card__cells,
+.card--ink .card__cells > div + div,
+.card--ink .card__rows > div,
+.card--ink .card__text {
+  border-color: rgb(255 90 31 / 0.55);
+}
+.card--ink .card__label {
+  color: var(--orange);
+  opacity: 1;
+}
+.card__target {
+  display: grid;
+  place-items: center;
+  margin: 14px 16px 0;
+  padding: 14px 0 !important;
+  border: 1px solid rgb(255 90 31 / 0.55);
+}
+.card__target svg {
+  width: 104px;
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 1.2;
+}
+.card__target .t-ring {
+  stroke-dasharray: 4 6;
+  transform-origin: 60px 60px;
+  animation: spin 14s linear infinite;
+}
+.card__target .t-arc {
+  stroke-width: 3;
+  transform-origin: 60px 60px;
+  animation: spin 3.2s linear infinite reverse;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.card__rows--coords dd {
+  font-weight: 500;
+}
+.card__meter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.card__meter .meter {
+  flex: 1;
+  color: var(--orange);
+}
+.card__meter span:last-child {
+  min-width: 4ch;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.card__log {
+  display: grid;
+  gap: 3px;
+  margin: 12px 16px 0;
+  padding: 10px 12px !important;
+  border: 1px solid rgb(255 90 31 / 0.55);
+  font-size: 10px;
+}
+.card__log li {
+  opacity: 0.25;
+  transition: opacity 0.3s, color 0.3s;
+}
+.card__log li.is-on {
+  opacity: 1;
+}
+.card__log li.is-on::first-letter {
+  color: var(--orange);
+}
+.card__caution {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 16px 16px;
+  padding: 10px 12px !important;
+  border: 1px solid rgb(255 90 31 / 0.55);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+}
+.card__caution svg {
+  flex: none;
+  width: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+/* Bone — document strip */
+.card--bone {
+  background: var(--bone);
+  color: var(--ink);
+}
+.card__split {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  padding-top: 14px;
+}
+.card__vertical {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  justify-self: start;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--orange-ink);
+}
+.card__side {
+  display: grid;
+  align-content: start;
+  min-width: 110px;
+}
+.card__side > div {
+  display: grid;
+  gap: 2px;
+  padding: 8px 0 8px 12px;
+  border-left: 1.5px solid var(--orange-ink);
+  border-bottom: 1.5px solid var(--orange-ink);
+}
+.card__side dt {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--orange-ink);
+}
+.card__side dd {
+  font-weight: 600;
+  font-size: 20px;
+}
+.card__big--orange {
+  color: var(--orange-ink);
+}
+.card__table {
+  width: calc(100% - 32px);
+  margin: 12px 16px 0;
+  font-size: 12px;
+}
+.card__table tr {
+  border-top: 1.5px solid currentColor;
+}
+.card__table tr:last-child {
+  border-bottom: 1.5px solid currentColor;
+}
+.card__table th {
+  padding: 7px 0;
+  text-align: left;
+  font-weight: 500;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.card__table td {
+  text-align: right;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.card--bone .card__text {
+  border-top: 0;
+  padding-bottom: 16px;
+}
+
+/* Boarding pass strip */
+.card--pass {
+  background: var(--bone);
+  color: var(--ink);
+}
+.pass-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: var(--orange);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.hazard-sm {
+  flex: 1;
+  max-width: 120px;
+  height: 10px;
+  background: repeating-linear-gradient(-45deg, var(--bone) 0 4px, transparent 4px 8px);
+}
+.pass-card__body {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.pass-card__icon {
+  width: 64px;
+  fill: var(--ink);
+}
+.pass-card__body .card__label {
+  margin-top: 16px;
+}
+.pass-card__gate {
+  font-weight: 800;
+  font-stretch: 62%;
+  font-size: 118px;
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+}
+.pass-card__body .card__rows {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  border-bottom: 1.5px solid currentColor;
+}
+.pass-card__body .card__rows > div {
+  display: grid;
+  gap: 0;
+  padding: 6px 0;
+}
+.pass-card__body .btn {
+  width: 100%;
+  margin-top: 16px;
+}
+.pass-card__code {
+  display: grid;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+.pass-card__activity {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: var(--orange);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.yearchart {
+  width: 100%;
+  height: 56px;
+  margin-top: 8px;
+  fill: var(--ink);
+}
+.yearchart__labels {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4px;
+  font-size: 9px;
+}
+.pass-card__foot {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1.5px dashed var(--ink);
+  text-align: center;
+}
+
+/* Taller viewports have room for everything; short ones drop the extras. */
+@media (max-height: 960px) {
+  .card .card__extra {
+    display: none;
+  }
+  .card__big {
+    font-size: 92px;
+  }
+  .card__vertical {
+    font-size: 44px;
+  }
+  .pass-card__gate {
+    font-size: 96px;
+  }
+}
+@media (max-height: 800px) {
+  .card__text {
+    display: none;
+  }
+}
+@media (max-height: 700px) {
+  .card__target,
+  .card__hazard,
+  .pass-card__icon {
+    display: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .chapter {
+    padding-left: calc(var(--frame) + var(--gutter));
+    padding-right: calc(var(--frame) + var(--gutter));
+  }
+  .hero {
+    padding-left: calc(var(--frame) + var(--gutter));
+    padding-right: calc(var(--frame) + var(--gutter));
+    padding-bottom: calc(var(--frame) + 84px);
+  }
+  .hero__title {
+    font-size: clamp(64px, 22vw, 200px);
+  }
+  .hero__row {
+    grid-template-columns: 1fr auto;
+    gap: 16px 20px;
+  }
+  .hero__lede {
+    grid-column: 1 / -1;
+  }
+  .hero__by {
+    display: none;
+  }
+  /* On phones the cards ride at the bottom of the chapter and stick to the
+     bottom of the screen, so the 3D stays visible above them. */
+  .chapter:not(.chapter--hero) {
+    display: flex;
+    flex-direction: column;
+  }
+  .card {
+    top: auto;
+    bottom: calc(var(--frame) + 78px);
+    margin-top: auto;
+    margin-bottom: calc(var(--frame) + 78px);
+    max-height: none;
+  }
+  .chapter--right .card {
+    margin-left: 0;
+  }
+  .card .card__extra,
+  .card__target,
+  .card__hazard,
+  .card__caution,
+  .card__text,
+  .pass-card__icon,
+  .pass-card__activity {
+    display: none;
+  }
+  .card__big {
+    font-size: 72px;
+  }
+  .pass-card__gate {
+    font-size: 72px;
+  }
+  .card__split {
+    grid-template-columns: 1fr;
+  }
+  .card__vertical {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 30px;
+  }
+  .card__side {
+    display: none;
+  }
+}

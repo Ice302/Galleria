@@ -1,0 +1,9 @@
+node_modules/
+dist/
+snapshots/
+# Full-resolution originals stay on your machine; only resized copies are published.
+posters-src/
+.DS_Store
+
+# Original downloaded 3D models (large). Web versions are generated into public/models/.
+models-src/

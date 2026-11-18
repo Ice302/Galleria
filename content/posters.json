@@ -1,0 +1,591 @@
+[
+  {
+    "id": "house-of-balloons",
+    "file": "1.png",
+    "title": "House of Balloons",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "594 × 420 mm (A2)",
+    "description": "",
+    "alt": "Collage poster in warm orange and pink: a figure in a white dress lies across a red tufted sofa beneath script lettering reading “House of balloons”, with a red “VEIL” panel at left.",
+    "tone": "ink",
+    "color": "#f8e8f8",
+    "format": "landscape",
+    "image": {
+      "src": "/posters/house-of-balloons-1600.webp",
+      "width": 1600,
+      "height": 1131,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/house-of-balloons-800.webp"
+        },
+        {
+          "w": 1600,
+          "src": "/posters/house-of-balloons-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/house-of-balloons-2400.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1600,
+          "src": "/posters/house-of-balloons-original-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/house-of-balloons-original-2400.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "good-luck-babe",
+    "file": "2.png",
+    "title": "Good Luck, Babe!!",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "594 × 420 mm (A2)",
+    "description": "",
+    "alt": "Black-and-white manga collage on a grey and acid-green ground: a girl playing electric guitar faces another girl, with speech panels quoting Mitsuki Koga and Aya Osawa and the words “Good luck Babe!!”.",
+    "tone": "bone",
+    "color": "#a8a8a8",
+    "format": "landscape",
+    "image": {
+      "src": "/posters/good-luck-babe-1600.webp",
+      "width": 1600,
+      "height": 1131,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/good-luck-babe-800.webp"
+        },
+        {
+          "w": 1600,
+          "src": "/posters/good-luck-babe-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/good-luck-babe-2400.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1600,
+          "src": "/posters/good-luck-babe-original-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/good-luck-babe-original-2400.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "komi-san",
+    "file": "5.png",
+    "title": "Komi San",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "594 × 420 mm (A2)",
+    "description": "",
+    "alt": "Pink collage poster: a long-haired girl framed by cherry blossoms and musical notes, with bold “KOMI SAN” lettering and vertical Japanese text.",
+    "tone": "ink",
+    "color": "#080808",
+    "format": "landscape",
+    "image": {
+      "src": "/posters/komi-san-1600.webp",
+      "width": 1600,
+      "height": 1131,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/komi-san-800.webp"
+        },
+        {
+          "w": 1600,
+          "src": "/posters/komi-san-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/komi-san-2400.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1600,
+          "src": "/posters/komi-san-original-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/komi-san-original-2400.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "the-dangers-in-my-heart",
+    "file": "11.png",
+    "title": "The Dangers in My Heart",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "594 × 420 mm (A2)",
+    "description": "",
+    "alt": "Grey manga panels on mustard yellow: two classmates in school uniform across several scenes, titled “The Dangers In My Heart”.",
+    "tone": "graphite",
+    "color": "#282828",
+    "format": "landscape",
+    "image": {
+      "src": "/posters/the-dangers-in-my-heart-1600.webp",
+      "width": 1600,
+      "height": 1131,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/the-dangers-in-my-heart-800.webp"
+        },
+        {
+          "w": 1600,
+          "src": "/posters/the-dangers-in-my-heart-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/the-dangers-in-my-heart-2400.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1600,
+          "src": "/posters/the-dangers-in-my-heart-original-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/the-dangers-in-my-heart-original-2400.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "untitled-13",
+    "file": "13.png",
+    "title": "Untitled No. 13",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "594 × 420 mm (A2)",
+    "description": "",
+    "alt": "Cut-paper collage on an orange and cream ground: anime characters in glasses surrounded by old books, a beret, a sweater, a scarf, eyeglasses and a red umbrella.",
+    "tone": "ink",
+    "color": "#d8d8c8",
+    "format": "landscape",
+    "image": {
+      "src": "/posters/untitled-13-1600.webp",
+      "width": 1600,
+      "height": 1131,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/untitled-13-800.webp"
+        },
+        {
+          "w": 1600,
+          "src": "/posters/untitled-13-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/untitled-13-2400.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1600,
+          "src": "/posters/untitled-13-original-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/untitled-13-original-2400.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "i-kinda-like-that",
+    "file": "15.png",
+    "title": "I Kinda Like That",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "594 × 420 mm (A2)",
+    "description": "",
+    "alt": "Black and orange collage around a starship from Star Trek: The Next Generation, with the words “I kinda like that” and columns of small text about the Enterprise-D.",
+    "tone": "bone",
+    "color": "#080808",
+    "format": "landscape",
+    "image": {
+      "src": "/posters/i-kinda-like-that-1600.webp",
+      "width": 1600,
+      "height": 1131,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/i-kinda-like-that-800.webp"
+        },
+        {
+          "w": 1600,
+          "src": "/posters/i-kinda-like-that-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/i-kinda-like-that-2400.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1600,
+          "src": "/posters/i-kinda-like-that-original-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/i-kinda-like-that-original-2400.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "the-grand-budapest-hotel",
+    "file": "16.png",
+    "title": "The Grand Budapest Hotel",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "594 × 420 mm (A2)",
+    "description": "",
+    "alt": "Torn-paper collage of the pink Grand Budapest Hotel above a crowd of film characters, with the lines “A Wes Anderson film” and “An Indian paintbrush production”.",
+    "tone": "graphite",
+    "color": "#e8c8c8",
+    "format": "landscape",
+    "image": {
+      "src": "/posters/the-grand-budapest-hotel-1600.webp",
+      "width": 1600,
+      "height": 1131,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/the-grand-budapest-hotel-800.webp"
+        },
+        {
+          "w": 1600,
+          "src": "/posters/the-grand-budapest-hotel-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/the-grand-budapest-hotel-2400.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1600,
+          "src": "/posters/the-grand-budapest-hotel-original-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/the-grand-budapest-hotel-original-2400.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "little-by-little",
+    "file": "17.png",
+    "title": "Little by Little",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "594 × 420 mm (A2)",
+    "description": "",
+    "alt": "Soft green poster of floating folded cubes around a small group of anime characters, with the words “Little by Little”.",
+    "tone": "ink",
+    "color": "#587858",
+    "format": "landscape",
+    "image": {
+      "src": "/posters/little-by-little-1600.webp",
+      "width": 1600,
+      "height": 1131,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/little-by-little-800.webp"
+        },
+        {
+          "w": 1600,
+          "src": "/posters/little-by-little-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/little-by-little-2400.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1600,
+          "src": "/posters/little-by-little-original-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/little-by-little-original-2400.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ace-combat-7",
+    "file": "23.png",
+    "title": "Ace Combat 7",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "594 × 420 mm (A2)",
+    "description": "",
+    "alt": "Sky collage of clouds and contrails with an orange emblem and a blue jet silhouette, and chrome “ACE COMBAT 7” lettering across the middle.",
+    "tone": "orange",
+    "color": "#b8c8d8",
+    "format": "landscape",
+    "image": {
+      "src": "/posters/ace-combat-7-1600.webp",
+      "width": 1600,
+      "height": 1131,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/ace-combat-7-800.webp"
+        },
+        {
+          "w": 1600,
+          "src": "/posters/ace-combat-7-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/ace-combat-7-2400.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1600,
+          "src": "/posters/ace-combat-7-original-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/ace-combat-7-original-2400.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "onryo",
+    "file": "25.png",
+    "title": "Onryo",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "594 × 420 mm (A2)",
+    "description": "",
+    "alt": "Black and red typographic poster: a masked warrior with a sword, the words “ONRYO”, “HUNTER”, “KILLER” and “MASTER”, and a list of weapons — kusarigama, odachi, dual katana, yari, wolf blade.",
+    "tone": "bone",
+    "color": "#080808",
+    "format": "landscape",
+    "image": {
+      "src": "/posters/onryo-1600.webp",
+      "width": 1600,
+      "height": 1131,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/onryo-800.webp"
+        },
+        {
+          "w": 1600,
+          "src": "/posters/onryo-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/onryo-2400.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1600,
+          "src": "/posters/onryo-original-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/onryo-original-2400.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "violet-evergarden",
+    "file": "26.png",
+    "title": "Violet Evergarden",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "594 × 420 mm (A2)",
+    "description": "",
+    "alt": "Green collage of Violet Evergarden panels with a blue parasol, vertical Japanese text and the line “Even all the stars make way for the sun”.",
+    "tone": "graphite",
+    "color": "#282828",
+    "format": "landscape",
+    "image": {
+      "src": "/posters/violet-evergarden-1600.webp",
+      "width": 1600,
+      "height": 1131,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/violet-evergarden-800.webp"
+        },
+        {
+          "w": 1600,
+          "src": "/posters/violet-evergarden-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/violet-evergarden-2400.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1600,
+          "src": "/posters/violet-evergarden-original-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/violet-evergarden-original-2400.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "apocalypse-hotel",
+    "file": "Apocalypse Hotel.png",
+    "title": "Apocalypse Hotel",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "594 × 420 mm (A2)",
+    "description": "",
+    "alt": "Olive-gold collage of anime scenes and an overgrown department store, with tilted signs reading “In the galaxy the best hotel”.",
+    "tone": "ink",
+    "color": "#a89828",
+    "format": "landscape",
+    "image": {
+      "src": "/posters/apocalypse-hotel-1600.webp",
+      "width": 1600,
+      "height": 1131,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/apocalypse-hotel-800.webp"
+        },
+        {
+          "w": 1600,
+          "src": "/posters/apocalypse-hotel-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/apocalypse-hotel-2400.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1600,
+          "src": "/posters/apocalypse-hotel-original-1600.webp"
+        },
+        {
+          "w": 2400,
+          "src": "/posters/apocalypse-hotel-original-2400.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "battle-amongst-giants",
+    "file": "Battle Amongst Giants.png",
+    "title": "Battle Amongst Giants",
+    "year": 2026,
+    "medium": "Digital collage",
+    "size": "1080 × 1350 px (4:5)",
+    "description": "",
+    "alt": "Cloudscape poster in gold and white: the glowing title “Battle Amongst Giants” over two sword-wielding figures facing off across the sky, a lens flare between them, birds, and a gold slash cutting down through the clouds.",
+    "tone": "orange",
+    "color": "#f8e8d8",
+    "format": "portrait",
+    "image": {
+      "src": "/posters/battle-amongst-giants-1080.webp",
+      "width": 1080,
+      "height": 1350,
+      "srcset": [
+        {
+          "w": 800,
+          "src": "/posters/battle-amongst-giants-800.webp"
+        },
+        {
+          "w": 1080,
+          "src": "/posters/battle-amongst-giants-1080.webp"
+        }
+      ],
+      "original": [
+        {
+          "w": 1080,
+          "src": "/posters/battle-amongst-giants-original-1080.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "placeholder-tall-order",
+    "title": "Tall Order",
+    "year": "",
+    "medium": "Placeholder",
+    "size": "4:5",
+    "description": "A stand-in so the portrait hall has something to slide between. Add your own portrait posters to posters-src/ and run npm run posters.",
+    "alt": "Tall Order — placeholder portrait poster",
+    "tone": "orange",
+    "format": "portrait",
+    "image": {
+      "src": "/posters/placeholder-portrait-tall-order.svg",
+      "width": 1600,
+      "height": 2000
+    },
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-lighthouse",
+    "title": "Lighthouse",
+    "year": "",
+    "medium": "Placeholder",
+    "size": "4:5",
+    "description": "A stand-in so the portrait hall has something to slide between. Add your own portrait posters to posters-src/ and run npm run posters.",
+    "alt": "Lighthouse — placeholder portrait poster",
+    "tone": "ink",
+    "format": "portrait",
+    "image": {
+      "src": "/posters/placeholder-portrait-lighthouse.svg",
+      "width": 1600,
+      "height": 2000
+    },
+    "placeholder": true
+  },
+  {
+    "id": "placeholder-vertigo",
+    "title": "Vertigo",
+    "year": "",
+    "medium": "Placeholder",
+    "size": "4:5",
+    "description": "A stand-in so the portrait hall has something to slide between. Add your own portrait posters to posters-src/ and run npm run posters.",
+    "alt": "Vertigo — placeholder portrait poster",
+    "tone": "bone",
+    "format": "portrait",
+    "image": {
+      "src": "/posters/placeholder-portrait-vertigo.svg",
+      "width": 1600,
+      "height": 2000
+    },
+    "placeholder": true
+  }
+]

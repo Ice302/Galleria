@@ -1,0 +1,16 @@
+f1.glb
+  "2026 Cadillac MAC-26" by Dave Love (https://sketchfab.com/Tyler_Dave)
+  Source: https://sketchfab.com/3d-models/2026-cadillac-mac-26-95bcd37aa7c649779efc33b90b6c023e
+  License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+  Changes: simplified (260k → 84k triangles); sponsor/number decals and hidden
+  cockpit parts removed; livery texture repainted to the Galleria palette with
+  the script logo replaced by "GALLERIA"; tyre lettering replaced by a band.
+
+ship.glb
+  "Cruise Ship" by Gman The Cruise Dude (https://sketchfab.com/gmanisdabossatbeastmode)
+  Source: https://sketchfab.com/3d-models/cruise-ship-c5b81544306e43fe93aaebdde02fef62
+  License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+  Changes: simplified (724k → 118k triangles); passenger figures, outline
+  lines and a stray object removed; recoloured to the Galleria palette.
+
+Both are regenerated from the originals in models-src/ by `npm run models`.

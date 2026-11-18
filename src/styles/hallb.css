@@ -1,0 +1,471 @@
+/* ───────────── Hall B: the portrait slider ─────────────
+   Without JS this is a simple list of posters. ui/hallb.js adds .hallb--js,
+   pins the section and drives every transition from scroll position. */
+
+.hallb {
+  position: relative;
+  z-index: 2;
+  background: var(--ink);
+  color: var(--bone);
+}
+.hallb__pin {
+  position: relative;
+  padding: 140px calc(var(--frame) + var(--gutter) + 26px) 120px;
+}
+.hallb__head {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+.hallb__heading {
+  font-weight: 800;
+  font-size: clamp(48px, 7vw, 120px);
+  line-height: 0.86;
+  letter-spacing: -0.05em;
+}
+.hallb__slides {
+  display: grid;
+  gap: 80px;
+}
+.pslide {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
+}
+.pslide__figure {
+  --ratio: 0.8;
+  position: relative;
+}
+.pslide__frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--ink-3);
+  box-shadow: 0 60px 120px -40px rgb(0 0 0 / 0.85), 0 0 0 1px rgb(255 255 255 / 0.06);
+}
+.pslide__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+.pslide__kicker {
+  display: flex;
+  gap: 18px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.pslide__kicker span:first-child {
+  color: var(--orange);
+  font-weight: 600;
+}
+.pslide__title {
+  margin: 14px 0 26px;
+  font-weight: 800;
+  font-size: clamp(44px, 5.6vw, 104px);
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+}
+.pslide__title .w {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.04em 0.02em 0.1em;
+  margin: -0.04em -0.02em -0.1em;
+  vertical-align: top;
+}
+.pslide__title .c {
+  display: inline-block;
+  will-change: transform;
+}
+.pslide__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 440px;
+  border-top: 1px solid var(--line-strong);
+}
+.pslide__meta div {
+  padding: 10px 12px 10px 0;
+}
+.pslide__meta dt {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--orange);
+}
+.pslide__meta dd {
+  margin-top: 4px;
+  font-size: 13px;
+}
+.pslide__desc {
+  max-width: 44ch;
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.hallb__counter,
+.hallb__progress,
+.hallb__rail,
+.hallb__nav,
+.hallb__hint,
+.hallb__ambient {
+  display: none;
+}
+
+/* ───────────── Pinned, scroll-driven version ───────────── */
+.hallb--js .hallb__pin {
+  height: 100svh;
+  padding: 0;
+  overflow: hidden;
+}
+.hallb--js .hallb__head {
+  position: absolute;
+  left: calc(var(--frame) + var(--gutter) + 26px);
+  top: calc(var(--frame) + var(--head) + 22px);
+  z-index: 3;
+  margin: 0;
+  gap: 8px;
+}
+.hallb--js .hallb__heading {
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--muted);
+}
+.hallb--js .hallb__slides {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+.hallb--js .pslide {
+  display: block;
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+}
+.hallb--js .pslide.is-cur,
+.hallb--js .pslide.is-in {
+  visibility: visible;
+}
+.hallb--js .pslide.is-in {
+  z-index: 2;
+}
+.hallb--js .pslide__figure {
+  position: absolute;
+  left: 47vw;
+  top: 50%;
+  height: min(70svh, 760px);
+  width: calc(min(70svh, 760px) * var(--ratio));
+  margin-top: calc(min(70svh, 760px) / -2);
+}
+.hallb--js .pslide__frame {
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 60%;
+  will-change: transform;
+}
+.hallb--js .pslide__img {
+  height: 100%;
+  object-fit: cover;
+}
+.pslide__strips {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+.pslide.is-in .pslide__strips {
+  display: block;
+}
+.pslide.is-in .pslide__frame > .pslide__img {
+  visibility: hidden;
+}
+.pstrip {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  will-change: transform;
+}
+.pstrip img {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  will-change: transform;
+}
+/* The leading edge of each strip glows orange while it moves. */
+.pstrip::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--orange);
+  box-shadow: 0 0 24px 4px rgb(255 90 31 / 0.65);
+  opacity: var(--lip, 0);
+}
+.pstrip--up::after {
+  top: 0;
+}
+.pstrip--down::after {
+  bottom: 0;
+}
+.pslide__shade {
+  position: absolute;
+  inset: 0;
+  background: #050505;
+  opacity: 0;
+  pointer-events: none;
+}
+.pslide__sweep {
+  position: absolute;
+  top: -4%;
+  bottom: -4%;
+  left: 0;
+  width: 3px;
+  background: var(--orange);
+  box-shadow: 0 0 30px 6px rgb(255 90 31 / 0.7);
+  opacity: 0;
+  pointer-events: none;
+}
+.hallb--js .pslide__info {
+  position: absolute;
+  left: calc(var(--frame) + var(--gutter) + 26px);
+  top: 50%;
+  width: min(38vw, 560px);
+  transform: translateY(-44%);
+}
+.hallb--js .pslide__kicker,
+.hallb--js .pslide__meta,
+.hallb--js .pslide__desc {
+  will-change: transform, opacity;
+}
+
+.hallb__ambient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hallb--js .hallb__ambient {
+  display: block;
+}
+.hallb__ambient canvas {
+  position: absolute;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  opacity: 0;
+  will-change: opacity;
+}
+.hallb__ambient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(14 14 14 / 0.94) 0%, rgb(14 14 14 / 0.72) 38%, rgb(14 14 14 / 0.4) 70%, rgb(14 14 14 / 0.7) 100%),
+    radial-gradient(ellipse at 62% 50%, transparent 0%, rgb(14 14 14 / 0.5) 70%);
+}
+
+.hallb--js .hallb__counter {
+  position: absolute;
+  left: calc(var(--frame) + var(--gutter) + 26px);
+  bottom: calc(var(--frame) + 96px);
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  font-family: var(--font-display);
+}
+.hallb__digits {
+  display: block;
+  height: 1em;
+  overflow: hidden;
+  font-weight: 800;
+  font-stretch: 62%;
+  font-size: clamp(64px, 8vw, 132px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.hallb__roll {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+.hallb__roll span {
+  height: 1em;
+}
+.hallb__of {
+  margin-bottom: 0.9em;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.hallb--js .hallb__progress {
+  position: absolute;
+  left: calc(var(--frame) + var(--gutter) + 26px);
+  bottom: calc(var(--frame) + 86px);
+  z-index: 3;
+  display: block;
+  width: min(30vw, 380px);
+  height: 2px;
+  background: var(--line);
+}
+.hallb__progress i {
+  display: block;
+  height: 100%;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.hallb--js .hallb__rail {
+  --thumb: 58px;
+  position: absolute;
+  right: calc(var(--frame) + var(--gutter) + 26px);
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  gap: 10px;
+  transform: translateY(-50%);
+}
+.hallb__thumb {
+  display: block;
+  width: var(--thumb);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 2px;
+  opacity: 0.4;
+  filter: grayscale(1);
+  transition: opacity 0.3s, filter 0.3s;
+}
+.hallb__thumb:hover,
+.hallb__thumb.is-active {
+  opacity: 1;
+  filter: none;
+}
+.hallb__thumbimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hallb__marker {
+  position: absolute;
+  left: -6px;
+  top: -6px;
+  width: calc(var(--thumb) + 12px);
+  height: calc(var(--thumb) * 1.25 + 12px);
+  border: 1.5px solid var(--orange);
+  border-radius: 4px;
+  pointer-events: none;
+  will-change: transform;
+}
+.hallb--js .hallb__nav {
+  position: absolute;
+  right: calc(var(--frame) + var(--gutter) + 26px);
+  bottom: calc(var(--frame) + 92px);
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+}
+.hallb__btn {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: rgb(14 14 14 / 0.5);
+  font-size: 18px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.hallb__btn:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--ink);
+}
+.hallb__btn:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.hallb--js .hallb__hint {
+  position: absolute;
+  right: calc(var(--frame) + var(--gutter) + 26px + 112px);
+  bottom: calc(var(--frame) + 106px);
+  z-index: 3;
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+@media (max-width: 1100px) {
+  .hallb--js .pslide__figure {
+    left: 50vw;
+  }
+}
+
+@media (max-width: 899px) {
+  .hallb__pin {
+    padding: 110px calc(var(--frame) + var(--gutter)) 90px;
+  }
+  .pslide {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .hallb--js {
+    --ph: min(44svh, 96vw);
+    --ptop: calc(var(--frame) + var(--head) + 56px);
+  }
+  .hallb--js .pslide__figure {
+    left: 50%;
+    top: var(--ptop);
+    height: var(--ph);
+    width: calc(var(--ph) * var(--ratio));
+    margin: 0 0 0 calc(var(--ph) * var(--ratio) / -2);
+  }
+  .hallb--js .pslide__info {
+    top: calc(var(--ptop) + var(--ph) + 22px);
+    left: calc(var(--frame) + var(--gutter));
+    right: calc(var(--frame) + var(--gutter));
+    width: auto;
+    transform: none;
+  }
+  .hallb--js .pslide__title {
+    margin: 8px 0 12px;
+    font-size: clamp(32px, 9vw, 52px);
+  }
+  .hallb--js .pslide__desc,
+  .hallb--js .hallb__rail,
+  .hallb--js .hallb__hint,
+  .hallb--js .hallb__progress {
+    display: none;
+  }
+  .hallb--js .hallb__head {
+    left: calc(var(--frame) + var(--gutter));
+  }
+  .hallb--js .hallb__heading {
+    display: none;
+  }
+  .hallb--js .hallb__counter {
+    left: calc(var(--frame) + var(--gutter));
+    bottom: calc(var(--frame) + 80px);
+  }
+  .hallb__digits {
+    font-size: 44px;
+  }
+  .hallb--js .hallb__nav {
+    right: calc(var(--frame) + var(--gutter));
+    bottom: calc(var(--frame) + 82px);
+  }
+  .hallb__ambient::after {
+    background: linear-gradient(180deg, rgb(14 14 14 / 0.55) 0%, rgb(14 14 14 / 0.35) 40%, rgb(14 14 14 / 0.92) 75%);
+  }
+}

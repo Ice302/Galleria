@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>{{site.siteName}} — {{site.tagline}}</title>
+    <meta name="description" content="{{site.description}}">
+    <meta name="author" content="{{site.artist}}">
+    <meta name="theme-color" content="#0e0e0e">
+    <meta name="color-scheme" content="dark">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="canonical" href="{{site.url}}">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{site.siteName}}">
+    <meta property="og:title" content="{{site.siteName}} — {{site.tagline}}">
+    <meta property="og:description" content="{{site.description}}">
+    <meta property="og:url" content="{{site.url}}">
+    <meta property="og:image" content="{{ogImage}}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- @jsonld -->
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#exhibition">Skip to the posters</a>
+
+    <!-- Preloader: a tape being loaded. Purely decorative; it lifts on its own. -->
+    <div class="preloader" aria-hidden="true">
+      <div class="preloader__label">
+        <span class="tag">G III</span>
+        <span class="mono">Loading tape · E-180 · High grade</span>
+      </div>
+      <div class="preloader__count"><span data-preload-count>000</span><small>%</small></div>
+      <div class="preloader__bar"><i data-preload-bar></i></div>
+      <div class="preloader__foot mono"><span>{{site.siteName}}</span><span>Series {{site.series}}</span><span>Edition {{site.edition}}</span></div>
+    </div>
+
+    <div class="stage" aria-hidden="true">
+      <canvas class="stage__canvas"></canvas>
+      <div class="stage__fallback">
+        <div class="fallback__sun"></div>
+        <div class="fallback__sea"></div>
+        <p class="mono">3D stage unavailable on this device — the exhibition is all still here.</p>
+      </div>
+      <div class="stage__scan"></div>
+    </div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Viewport frame, after the printer's marks on a sticker sheet. -->
+    <div class="frame" aria-hidden="true">
+      <span class="frame__corner frame__corner--tl"></span>
+      <span class="frame__corner frame__corner--tr"></span>
+      <span class="frame__corner frame__corner--bl"></span>
+      <span class="frame__corner frame__corner--br"></span>
+      <div class="frame__edge frame__edge--left mono">
+        <span>Project: {{site.siteName}}</span>
+        <span>Format: Landscape</span>
+        <span>Paper: Premium poster</span>
+        <span>Ink: CMYK + spot orange</span>
+      </div>
+      <div class="frame__edge frame__edge--right mono">
+        <span>Series: {{site.series}}</span>
+        <span>Date: {{month}} / {{year}}</span>
+        <span>Edition: {{site.edition}}</span>
+        <span>Run: <b data-run>000</b>%</span>
+        <span>Creator: {{site.artist}}</span>
+      </div>
+    </div>
+
+    <header class="masthead">
+      <a class="brand" href="#top" aria-label="{{site.siteName}} — back to the start">
+        <span class="brand__mark" aria-hidden="true">G<i></i><i></i><i></i></span>
+        <span class="brand__name">{{site.siteName}}</span>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#velocity">Velocity</a>
+        <a href="#transit">Transit</a>
+        <a href="#scale">Scale</a>
+        <a href="#exhibition">Exhibition</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="masthead__tools">
+        <button class="tour" type="button" aria-pressed="false" data-cursor="Play">
+          <span class="tour__icon" aria-hidden="true"></span><span class="tour__label">Play tape</span>
+        </button>
+        <span class="rec mono" aria-hidden="true"><i></i><span>TC</span><span data-tc>00:00:00:00</span></span>
+      </div>
+    </header>
+
+    <nav class="phases" aria-label="Story progress">
+      <ol>
+        <li><a href="#velocity" data-phase="0"><span class="phases__label">Phase 1: <b>Velocity</b></span><span class="phases__bar"><i></i></span></a></li>
+        <li><a href="#transit" data-phase="1"><span class="phases__label">Phase 2: <b>Transit</b></span><span class="phases__bar"><i></i></span></a></li>
+        <li><a href="#scale" data-phase="2"><span class="phases__label">Phase 3: <b>Scale</b></span><span class="phases__bar"><i></i></span></a></li>
+        <li><a href="#exhibition" data-phase="3"><span class="phases__label">Phase 4: <b>Exhibition</b></span><span class="phases__bar"><i></i></span></a></li>
+      </ol>
+    </nav>
+
+    <main id="main">
+      <section class="story" id="story" aria-label="The story: from race car to cruise ship">
+        <article class="chapter chapter--hero" id="top" data-chapter="0" tabindex="-1">
+          <div class="hero">
+            <div class="hero__top" data-reveal>
+              <p class="hero__kicker mono">
+                <span class="tag">F III</span>
+                <span>Series {{site.series}} · Edition {{site.edition}} · {{formats}}</span>
+              </p>
+              <p class="hero__by mono">Designed &amp; curated by <b>{{site.artist}}</b></p>
+            </div>
+            <h1 class="hero__title" data-hero-title>{{site.siteName}}</h1>
+            <div class="hero__row">
+              <p class="hero__lede" data-reveal>{{site.tagline}} From the race track to the open sea — scroll to play the tape.</p>
+              <p class="hero__tape" data-reveal aria-hidden="true"><span class="vhs">VHS</span><span class="hero__code">E-180</span></p>
+              <a class="hero__cue mono" href="#velocity" data-reveal><span>Scroll to play</span><i aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter chapter--velocity chapter--left" id="velocity" data-chapter="1" aria-labelledby="velocity-title">
+          <div class="card card--orange" data-card>
+            <div class="card__cells">
+              <div><small>Section</small><b>01</b></div>
+              <div><small>ID</small><b>GL-001</b></div>
+            </div>
+            <p class="card__label">System label · Velocity</p>
+            <h2 class="card__title" id="velocity-title">Built for speed.</h2>
+            <p class="sr-only">Telemetry: top speed 342 kilometres per hour, eight gears.</p>
+            <div class="card__big" aria-hidden="true"><span data-t="kmh">000</span><small>km/h</small></div>
+            <dl class="card__rows" aria-hidden="true">
+              <div><dt>Gear</dt><dd data-t="gear">N</dd></div>
+              <div><dt>RPM</dt><dd><span class="meter"><i data-t="rpmbar"></i></span><span data-t="rpm">00000</span></dd></div>
+              <div><dt>Status</dt><dd>Active <span class="sq"></span></dd></div>
+              <div class="card__extra"><dt>Voltage</dt><dd>24.0 V DC</dd></div>
+            </dl>
+            <p class="card__text">Every poster starts as a rush — one idea moving faster than it can be explained. Phase one is pure velocity: flat colour, hard edges, nothing wasted.</p>
+            <div class="card__hazard" aria-hidden="true"></div>
+            <p class="card__foot mono" aria-hidden="true">[ System OK ]</p>
+          </div>
+        </article>
+
+        <article class="chapter chapter--transit chapter--right" id="transit" data-chapter="2" aria-labelledby="transit-title">
+          <div class="card card--ink" data-card>
+            <div class="card__cells">
+              <div><small>Interface</small><b>V2.1</b></div>
+              <div><small>Manual</small><b>Transit</b></div>
+            </div>
+            <p class="card__label">Target lock · T-07</p>
+            <h2 class="card__title" id="transit-title">Speed becomes scale.</h2>
+            <div class="card__target" aria-hidden="true">
+              <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="44" class="t-ring"/><circle cx="60" cy="60" r="26"/><rect x="52" y="52" width="16" height="16"/><path d="M60 4v26M60 90v26M4 60h26M90 60h26"/><path class="t-arc" d="M60 16a44 44 0 0 1 44 44"/></svg>
+            </div>
+            <dl class="card__rows card__rows--coords mono" aria-hidden="true">
+              <div><dt>X</dt><dd data-t="x">+00000.00</dd></div>
+              <div><dt>Y</dt><dd data-t="y">+00000.00</dd></div>
+              <div><dt>Z</dt><dd data-t="z">+00000.00</dd></div>
+            </dl>
+            <div class="card__meter mono" aria-hidden="true"><span>Morph</span><span class="meter"><i data-t="morphbar"></i></span><span data-t="morph">000%</span></div>
+            <ol class="card__log mono card__extra" aria-hidden="true">
+              <li data-at="0.01">[00:01:12] INIT ........... OK</li>
+              <li data-at="0.1">[00:01:15] SAMPLE 18K PTS . OK</li>
+              <li data-at="0.32">[00:01:18] DISSOLVE ....... OK</li>
+              <li data-at="0.55">[00:01:24] TRANSIT ........ OK</li>
+              <li data-at="0.82">[00:01:30] REASSEMBLE ..... OK</li>
+              <li data-at="0.98">[00:01:31] HULL SEALED .... OK</li>
+            </ol>
+            <p class="card__text">Then the rush slows down, gains weight, and becomes something you can walk around in. Eighteen thousand pixels leave the car and re-form as a ship.</p>
+            <p class="card__caution mono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 2 21h20L12 3Z"/><path d="M12 10v5M12 17.5v.5"/></svg><span>Caution<br>Refer to manual before operation</span></p>
+          </div>
+        </article>
+
+        <article class="chapter chapter--scale chapter--left" id="scale" data-chapter="3" aria-labelledby="scale-title">
+          <div class="card card--bone" data-card>
+            <div class="card__cells">
+              <div><small>Document</small><b>GL-4721</b></div>
+              <div><small>Type</small><b>STD</b></div>
+            </div>
+            <div class="card__split">
+              <h2 class="card__vertical" id="scale-title">Built to carry.</h2>
+              <dl class="card__side mono">
+                <div><dt>Class</dt><dd>A1</dd></div>
+                <div><dt>Zone</dt><dd>07</dd></div>
+                <div><dt>Seq</dt><dd>{{count}}</dd></div>
+              </dl>
+            </div>
+            <div class="card__big card__big--orange"><span>18</span><small>Decks</small></div>
+            <table class="card__table mono">
+              <caption class="sr-only">Vessel particulars</caption>
+              <tbody>
+                <tr><th scope="row">Length</th><td>330 m</td></tr>
+                <tr class="card__extra"><th scope="row">Tonnage</th><td>168,666 GT</td></tr>
+                <tr><th scope="row">Speed</th><td><span data-t="knots" aria-hidden="true">00.0</span><span class="sr-only">22.6</span> kn</td></tr>
+                <tr class="card__extra"><th scope="row">From</th><td>Track 07</td></tr>
+                <tr class="card__extra"><th scope="row">To</th><td>Hall A</td></tr>
+                <tr><th scope="row">Cargo</th><td>{{count}} works</td></tr>
+              </tbody>
+            </table>
+            <p class="card__text">Big enough to carry the whole collection. Every work on board, every one of them in landscape.</p>
+          </div>
+        </article>
+
+        <article class="chapter chapter--boarding chapter--right" id="boarding" data-chapter="4" aria-labelledby="boarding-title">
+          <div class="card card--pass" data-card>
+            <div class="pass-card__head mono"><span>Boarding pass</span><span class="hazard-sm" aria-hidden="true"></span></div>
+            <div class="pass-card__body">
+              <svg class="pass-card__icon" viewBox="0 0 64 32" aria-hidden="true"><path d="M4 22h56l-6 8H10z"/><rect x="12" y="15" width="40" height="6"/><rect x="18" y="9" width="28" height="5"/><rect x="34" y="2" width="6" height="6"/></svg>
+              <p class="card__label">Gate</p>
+              <h2 class="pass-card__gate" id="boarding-title"><span class="sr-only">Now boarding: the exhibition. Gate </span>G1</h2>
+              <dl class="card__rows mono">
+                <div><dt>Voyage</dt><dd>GL 0180</dd></div>
+                <div><dt>Date</dt><dd data-today>—</dd></div>
+                <div><dt>From</dt><dd>Track 07</dd></div>
+                <div><dt>To</dt><dd>Hall A</dd></div>
+                <div class="card__extra"><dt>Seat</dt><dd>Any</dd></div>
+                <div class="card__extra"><dt>Class</dt><dd>Y</dd></div>
+              </dl>
+              <a class="btn btn--ink" href="#exhibition" data-cursor="Board">Board the exhibition <span aria-hidden="true">↓</span></a>
+              <div class="pass-card__code"><!-- @barcode:boarding-g1 --><span class="mono">No: 4721 07 23 001</span></div>
+            </div>
+            <div class="pass-card__activity">
+              <p class="mono">Works per year</p>
+              <!-- @yearchart -->
+              <p class="pass-card__foot mono" aria-hidden="true">Have a nice trip</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <div class="tapes" aria-hidden="true">
+        <div class="tape tape--orange"><div class="tape__track" data-marquee="1"><span>Galleria ✦ Now boarding ✦ The exhibition ✦ E-180 high grade ✦ {{count}} works ✦ Hall A · Hall B ✦&nbsp;</span></div></div>
+        <div class="tape tape--ink"><div class="tape__track" data-marquee="-1"><span>Super visual ✦ Gate G1 ✦ {{years}} ✦ Recording and playback ✦ Hall A ✦ Admit one ✦&nbsp;</span></div></div>
+      </div>
+
+      <section class="exhibition" id="exhibition" aria-labelledby="exhibition-title">
+        <header class="exhibition__head">
+          <p class="eyebrow mono"><span class="tag tag--ink">G1</span> Gate G1 · Now boarding</p>
+          <h2 class="exhibition__title" id="exhibition-title">The Exhibition</h2>
+          <p class="exhibition__meta mono"><span>{{count}} works</span><span>{{years}}</span><span>{{formats}}</span></p>
+        </header>
+
+        <div class="board" role="region" aria-label="Departures board: every work in the exhibition">
+          <div class="board__top mono" aria-hidden="true">
+            <span>Departures</span><span>{{site.siteName}} International</span><span>Hall A</span><span data-clock>00:00</span>
+          </div>
+          <div class="board__cols mono" aria-hidden="true">
+            <span>No.</span><span>Exhibit</span><span>Year</span><span>Medium</span><span>Hall</span><span>Status</span>
+          </div>
+          <ol class="board__rows">
+            <!-- @board -->
+          </ol>
+        </div>
+      </section>
+
+      <section class="reel" id="reel" aria-label="Exhibition hall" data-tone="ink">
+        <div class="reel__track">
+          <div class="reel__intro">
+            <p class="eyebrow mono">Hall A · Landscape · {{countA}} works</p>
+            <p class="reel__intro-title">Every work,<br>full width.</p>
+            <p class="mono reel__intro-hint">Keep scrolling <span aria-hidden="true">→</span></p>
+          </div>
+          <!-- @reel -->
+          <div class="reel__outro">
+            <p class="eyebrow mono">End of Hall A</p>
+            <p class="reel__intro-title">Now,<br>stand tall.</p>
+            <a class="btn btn--line mono" href="#hall-b">Hall B · Portrait <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <div class="reel__hud mono" aria-hidden="true">
+          <span>Exhibit <b data-reel-index>01</b> / {{countA}}</span>
+          <span class="reel__rail"><i data-reel-rail></i></span>
+          <span data-reel-title></span>
+        </div>
+      </section>
+
+      <!-- @hallb -->
+
+      <!-- @studio -->
+
+      <section class="sheet" id="index" aria-labelledby="sheet-title">
+        <header class="sheet__head">
+          <p class="eyebrow mono">Index · Contact sheet</p>
+          <h2 class="sheet__title" id="sheet-title">All works</h2>
+        </header>
+        <ul class="sheet__grid">
+          <!-- @sheet -->
+        </ul>
+      </section>
+    </main>
+
+    <footer class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="ticket">
+        <div class="ticket__main">
+          <p class="ticket__brand mono"><span class="tag">G III</span> {{site.siteName}} · Boarding pass</p>
+          <h2 class="ticket__headline" id="contact-title">Let’s make something that moves.</h2>
+          <dl class="ticket__grid mono">
+            <div><dt>Passenger</dt><dd>{{site.artist}}</dd></div>
+            <div><dt>Role</dt><dd>{{site.role}}</dd></div>
+            <div><dt>Based</dt><dd>{{site.location}}</dd></div>
+            <div><dt>Status</dt><dd>{{site.availability}}</dd></div>
+          </dl>
+          <div class="ticket__actions">
+            <a class="btn btn--orange" href="#contact" data-email-user="{{emailUser}}" data-email-domain="{{emailDomain}}" data-cursor="Write">
+              <span>Email</span> <span class="mono" data-email-text>{{emailUser}} [at] {{emailDomain}}</span>
+            </a>
+            <!-- @socials -->
+          </div>
+        </div>
+        <div class="ticket__stub">
+          <p class="mono">Gate</p>
+          <p class="ticket__gate">G1</p>
+          <dl class="mono"><div><dt>Seat</dt><dd>01-A</dd></div><div><dt>Zone</dt><dd>1</dd></div></dl>
+          <!-- @barcode:contact-stub -->
+          <button class="btn btn--line rewind mono" type="button" data-rewind data-cursor="Rewind"><span aria-hidden="true">◀◀</span> Rewind tape</button>
+          <p class="mono ticket__nice" aria-hidden="true">Have a nice trip</p>
+        </div>
+      </div>
+      <p class="legal mono">
+        <span>© {{year}} {{site.artist}}. All works shown are the property of the artist.</span>
+        <span>No trackers, no cookies. Type “vhs” for a surprise.</span>
+        <span class="legal__credits">3D models: <a href="https://sketchfab.com/3d-models/2026-cadillac-mac-26-95bcd37aa7c649779efc33b90b6c023e" rel="noopener noreferrer" target="_blank">“2026 Cadillac MAC-26”</a> by <a href="https://sketchfab.com/Tyler_Dave" rel="noopener noreferrer" target="_blank">Dave Love</a> and <a href="https://sketchfab.com/3d-models/cruise-ship-c5b81544306e43fe93aaebdde02fef62" rel="noopener noreferrer" target="_blank">“Cruise Ship”</a> by <a href="https://sketchfab.com/gmanisdabossatbeastmode" rel="noopener noreferrer" target="_blank">Gman The Cruise Dude</a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener noreferrer license" target="_blank">CC BY 4.0</a>. Simplified, decals removed and recoloured for this site.</span>
+      </p>
+    </footer>
+
+    <dialog class="lightbox" id="lightbox" aria-labelledby="lb-title" aria-describedby="lb-desc">
+      <div class="lightbox__bar">
+        <p class="mono lightbox__count"><span data-lb="index">01</span> / <span data-lb="total">01</span></p>
+        <h2 class="lightbox__title" id="lb-title" data-lb="title">Untitled</h2>
+        <button class="lightbox__close" type="button" data-lb-close aria-label="Close viewer"><span aria-hidden="true">✕</span></button>
+      </div>
+      <div class="lightbox__stage">
+        <button class="lightbox__zoom" type="button" data-lb-zoom aria-label="Zoom in" data-cursor="Zoom">
+          <img class="lightbox__img" data-lb="img" alt="" draggable="false">
+        </button>
+      </div>
+      <div class="lightbox__meta mono">
+        <p class="lightbox__desc" id="lb-desc" data-lb="desc"></p>
+        <dl>
+          <div><dt>Year</dt><dd data-lb="year"></dd></div>
+          <div><dt>Medium</dt><dd data-lb="medium"></dd></div>
+          <div><dt>Format</dt><dd data-lb="size"></dd></div>
+        </dl>
+        <button class="lightbox__mode btn btn--line" type="button" aria-pressed="false" data-lb-mode hidden>View original</button>
+        <p class="lightbox__keys" aria-hidden="true">← → browse · O original · click to zoom · Esc close</p>
+      </div>
+      <button class="lightbox__nav lightbox__nav--prev" type="button" data-lb-prev aria-label="Previous work"><span aria-hidden="true">←</span></button>
+      <button class="lightbox__nav lightbox__nav--next" type="button" data-lb-next aria-label="Next work"><span aria-hidden="true">→</span></button>
+    </dialog>
+
+    <div class="cursor" aria-hidden="true"><span class="cursor__label mono"></span></div>
+    <p class="sr-only" aria-live="polite" data-announce></p>
+
+    <script type="application/json" id="poster-data"><!-- @data --></script>
+    <noscript><link rel="stylesheet" href="/noscript.css"></noscript>
+  </body>
+</html>

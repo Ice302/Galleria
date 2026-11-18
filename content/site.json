@@ -1,0 +1,40 @@
+{
+  "siteName": "Galleria",
+  "artist": "Icey",
+  "role": "Poster designer",
+  "tagline": "A moving exhibition of landscape posters.",
+  "description": "Galleria is a scroll-driven exhibition of landscape posters — from the race track to the open sea.",
+  "url": "https://example.com",
+  "email": "hello@example.com",
+  "location": "Your City",
+  "availability": "Open for commissions",
+  "series": "01",
+  "edition": "001",
+  "socials": [
+    {
+      "label": "Instagram",
+      "url": "https://instagram.com/"
+    },
+    {
+      "label": "Behance",
+      "url": "https://www.behance.net/"
+    }
+  ],
+  "posterPrint": {
+    "enabled": true,
+    "tone": 0.32,
+    "halftone": 0.55,
+    "grain": 0.2,
+    "vignette": 0.5
+  },
+  "message": {
+    "label": "Message from Icey",
+    "lines": [
+      "Every poster starts as a feeling",
+      "I could never put into words"
+    ],
+    "image": null
+  },
+  "quote": "I don’t make posters of *what* happened. I make posters of *how* it felt.",
+  "signatureFont": "hurricane"
+}
